@@ -1,0 +1,13 @@
+{
+    "timestamp": "Wed May 21 13:49:09 2025",
+    "tests": [
+        {
+            "test": "test_demo_site (__main__.FirstSampleTest.test_demo_site)",
+            "status": "passed",
+            "error": null
+        }
+    ],
+    "passed": 1,
+    "failed": 0,
+    "errors": 0
+}

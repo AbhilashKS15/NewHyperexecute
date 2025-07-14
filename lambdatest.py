@@ -1,100 +1,277 @@
+# 
+
+# import unittest
+# import os
+# import json
+# import time
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.chrome.options import Options as ChromeOptions
+# from selenium.common.exceptions import WebDriverException
+
+# # Ensure reports directory exists
+# os.makedirs("reports", exist_ok=True)
+
+# # Get credentials from environment variables or use fallback values
+# username = os.getenv("LT_USERNAME", "abhilashks")
+# access_key = os.getenv("LT_ACCESS_KEY", "LT_vlepjdZXziyFBp5oW8m3LVYFQ5vpmplNFnDM8j5CpzkAmLw")
+
+# # Chrome options and LambdaTest capabilities
+# options = ChromeOptions()
+# options.browser_version = "latest"
+# options.platform_name = "Windows 10"
+
+# lt_options = {
+#     "username": username,
+#     "accessKey": access_key,
+#     "video": True,
+#     "network": True,
+#     "console": True,
+#     "resolution": "1920x1080",
+#     "build": "Selenium 3 Example",
+#     "name": "Selenium 3 Sample Test",
+#     "w3c": True,
+#     "plugin": "python-python"
+# }
+
+# options.set_capability("LT:Options", lt_options)
+
+# class FirstSampleTest(unittest.TestCase):
+#     driver = None
+
+#     def setUp(self):
+#         try:
+#             self.driver = webdriver.Remote(
+#                 command_executor=f"https://{username}:{access_key}@hub.lambdatest.com/wd/hub",
+#                 options=options
+#             )
+#             print("Connected to LambdaTest hub.")
+#         except WebDriverException as e:
+#             self.fail(f"Failed to connect to LambdaTest hub: {e}")
+
+#     def test_demo_site(self):
+#         driver = self.driver
+#         driver.implicitly_wait(10)
+#         driver.set_page_load_timeout(30)
+#         driver.set_window_size(1920, 1080)
+
+#         print("Loading demo URL")
+#         driver.get("https://stage-lambda-devops-use-only.lambdatestinternal.com/To-do-app/index.html")
+        
+#         # Click tasks
+#         driver.find_element(By.NAME, "li1").click()
+#         driver.find_element(By.NAME, "li2").click()
+#         print("Clicked on the first and second checkboxes")
+
+#         # Smart UI screenshot
+#         # try:
+#         #     driver.execute_script("smartui.takeScreenshot")
+#         #     print("Smart UI screenshot taken")
+#         # except Exception as e:
+#         #     print(f"Smart UI screenshot skipped or failed: {e}")
+
+#         # Add new task
+#         driver.find_element(By.ID, "sampletodotext").send_keys("LambdaTest")
+#         driver.find_element(By.ID, "addbutton").click()
+#         print("Added 'LambdaTest' task")
+
+#         # Verify heading
+#         heading = driver.find_element(By.CSS_SELECTOR, ".container h2")
+#         self.assertTrue(heading.is_displayed(), "Heading is not displayed")
+#         print(f"Heading found: {heading.text}")
+
+#         heading.click()
+#         time.sleep(3)
+
+#         # Mark test as passed/failed
+#         if heading.is_displayed():
+#             driver.execute_script("lambda-status=passed")
+#             print("Test passed")
+#         else:
+#             driver.execute_script("lambda-status=failed")
+#             print("Test failed")
+
+#     def tearDown(self):
+#         if self.driver:
+#             self.driver.quit()
+
+# # Custom test result class to write a JSON report
+# class JSONTestResult(unittest.TestResult):
+#     def __init__(self):
+#         super().__init__()
+#         self.results = []
+
+#     def addSuccess(self, test):
+#         super().addSuccess(test)
+#         self.results.append({"test": str(test), "status": "passed", "error": None})
+
+#     def addFailure(self, test, err):
+#         super().addFailure(test, err)
+#         self.results.append({"test": str(test), "status": "failed", "error": self._exc_info_to_string(err, test)})
+
+#     def addError(self, test, err):
+#         super().addError(test, err)
+#         self.results.append({"test": str(test), "status": "error", "error": self._exc_info_to_string(err, test)})
+
+#     def save_json(self):
+#         report = {
+#             "timestamp": time.ctime(),
+#             "tests": self.results,
+#             "passed": self.testsRun - len(self.failures) - len(self.errors),
+#             "failed": len(self.failures),
+#             "errors": len(self.errors)
+#         }
+#         with open("reports/test_report.json", "w") as f:
+#             json.dump(report, f, indent=4)
+
+# def run_tests():
+#     suite = unittest.TestLoader().loadTestsFromTestCase(FirstSampleTest)
+#     result = JSONTestResult()
+#     suite.run(result)
+#     result.save_json()
+#     return result
+
+# if __name__ == "__main__":
+#     result = run_tests()
+#     if result.wasSuccessful():
+#         print("All tests passed!")
+#     else:
+#         print("Some tests failed or had errors.")
+
+
 import unittest
 import os
+import json
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.common.exceptions import WebDriverException
 
-username = os.getenv("LT_USERNAME")  # Replace the username
-access_key = os.getenv("LT_ACCESS_KEY")  # Replace the access key
+# Ensure reports directory exists
+os.makedirs("reports", exist_ok=True)
 
+# Get credentials from environment variables or use fallback values
+username = os.getenv("LT_USERNAME", "abhilashks")
+access_key = os.getenv("LT_ACCESS_KEY", "LT_vlepjdZXziyFBp5oW8m3LVYFQ5vpmplNFnDM8j5CpzkAmLw")
 
-# paste your capibility options below
-
+# Chrome options and LambdaTest capabilities
 options = ChromeOptions()
 options.browser_version = "latest"
 options.platform_name = "Windows 10"
-lt_options = {}
-lt_options["username"] = username
-lt_options["accessKey"] = access_key
-# lt_options["video"] = True
-# lt_options["resolution"] = "1920x1080"
-lt_options["network"] = True
-lt_options["build"] = "Selenium 4 Example"
-# lt_options["project"] = "unit_testing"
-lt_options["smartUI.project"] = "test"
-lt_options["name"] = "Selenium 4 Sample Test"
-lt_options["w3c"] = True
-lt_options["plugin"] = "python-python"
+
+lt_options = {
+    "username": username,
+    "accessKey": access_key,
+    "video": True,
+    "network": True,
+    "console": True,
+    "resolution": "1920x1080",
+    "build": "Selenium 3 new Example",
+    "name": "Selenium 3 new Sample Test",
+    "w3c": True,
+    "plugin": "python-python"
+}
+
 options.set_capability("LT:Options", lt_options)
-
-
-# Steps to run Smart UI project (https://beta-smartui.lambdatest.com/)
-# Step - 1 : Change the hub URL to @beta-smartui-hub.lambdatest.com/wd/hub
-# Step - 2 : Add "smartUI.project": "<Project Name>" as a capability above
-# Step - 3 : Run "driver.execute_script("smartui.takeScreenshot")" command wherever you need to take a screenshot
-# Note: for additional capabilities navigate to https://www.lambdatest.com/support/docs/test-settings-options/
-
 
 class FirstSampleTest(unittest.TestCase):
     driver = None
 
     def setUp(self):
-        self.driver = webdriver.Remote(
-            command_executor="http://{}:{}@hub.lambdatest.com/wd/hub".format(
-                username, access_key
-            ),
-            options=options,
-        )
+        try:
+            self.driver = webdriver.Remote(
+                command_executor=f"https://{username}:{access_key}@hub.lambdatest.com/wd/hub",
+                options=options
+            )
+            print("Connected to LambdaTest hub.")
+        except WebDriverException as e:
+            self.fail(f"Failed to connect to LambdaTest hub: {e}")
 
-    # """ You can write the test cases here """
     def test_demo_site(self):
-        # try:
         driver = self.driver
         driver.implicitly_wait(10)
         driver.set_page_load_timeout(30)
         driver.set_window_size(1920, 1080)
 
-        # Url
-        print("Loading URL")
-        driver.get(
-            "https://stage-lambda-devops-use-only.lambdatestinternal.com/To-do-app/index.html"
-        )
+        print("Loading demo URL")
+        driver.get("https://stage-lambda-devops-use-only.lambdatestinternal.com/To-do-app/index.html")
+        time.sleep(2)
 
-        # Let's click on a element
+        # Click tasks
         driver.find_element(By.NAME, "li1").click()
-        location = driver.find_element(By.NAME, "li2")
-        location.click()
-        print("Clicked on the second element")
+        time.sleep(2)
+        driver.find_element(By.NAME, "li2").click()
+        print("Clicked on the first and second checkboxes")
+        time.sleep(2)
 
-        # Take Smart UI screenshot
-        # driver.execute_script("smartui.takeScreenshot")
-
-        # Let's add a checkbox
+        # Add new task
         driver.find_element(By.ID, "sampletodotext").send_keys("LambdaTest")
-        add_button = driver.find_element(By.ID, "addbutton")
-        add_button.click()
-        print("Added LambdaTest checkbox")
+        time.sleep(2)
+        driver.find_element(By.ID, "addbutton").click()
+        print("Added 'LambdaTest' task")
+        time.sleep(2)
 
-        # print the heading
-        search = driver.find_element(By.CSS_SELECTOR, ".container h2")
-        assert search.is_displayed(), "heading is not displayed"
-        print(search.text)
-        search.click()
-        driver.implicitly_wait(3)
-
-        # Let's download the invoice
+        # Verify heading
         heading = driver.find_element(By.CSS_SELECTOR, ".container h2")
+        self.assertTrue(heading.is_displayed(), "Heading is not displayed")
+        print(f"Heading found: {heading.text}")
+        time.sleep(2)
+
+        heading.click()
+        time.sleep(3)
+
+        # Mark test as passed/failed
         if heading.is_displayed():
-            heading.click()
             driver.execute_script("lambda-status=passed")
-            print("Tests are run successfully!")
+            print("Test passed")
         else:
             driver.execute_script("lambda-status=failed")
+            print("Test failed")
 
-    # tearDown runs after each test case
     def tearDown(self):
-        self.driver.quit()
+        if self.driver:
+            self.driver.quit()
 
+# Custom test result class to write a JSON report
+class JSONTestResult(unittest.TestResult):
+    def __init__(self):
+        super().__init__()
+        self.results = []
+
+    def addSuccess(self, test):
+        super().addSuccess(test)
+        self.results.append({"test": str(test), "status": "passed", "error": None})
+
+    def addFailure(self, test, err):
+        super().addFailure(test, err)
+        self.results.append({"test": str(test), "status": "failed", "error": self._exc_info_to_string(err, test)})
+
+    def addError(self, test, err):
+        super().addError(test, err)
+        self.results.append({"test": str(test), "status": "error", "error": self._exc_info_to_string(err, test)})
+
+    def save_json(self):
+        report = {
+            "timestamp": time.ctime(),
+            "tests": self.results,
+            "passed": self.testsRun - len(self.failures) - len(self.errors),
+            "failed": len(self.failures),
+            "errors": len(self.errors)
+        }
+        with open("reports/test_report.json", "w") as f:
+            json.dump(report, f, indent=4)
+
+def run_tests():
+    suite = unittest.TestLoader().loadTestsFromTestCase(FirstSampleTest)
+    result = JSONTestResult()
+    suite.run(result)
+    result.save_json()
+    return result
 
 if __name__ == "__main__":
-    unittest.main()
+    result = run_tests()
+    if result.wasSuccessful():
+        print("All tests passed!")
+    else:
+        print("Some tests failed or had errors.")

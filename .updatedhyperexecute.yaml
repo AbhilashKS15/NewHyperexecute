@@ -1,0 +1,181 @@
+accessibilityJob: false
+alwaysRunPostSteps: false
+appium: null
+autosplit: true
+betaFeature:
+    setPartiallyCompletedAsCompleted: false
+cacheDirectories:
+    - pip_cache
+cacheKey: '{{ checksum "requirements.txt" }}'
+captureScreenRecordingForScenarios: false
+codeDirectory: python-selenium-sample
+collectLocalGitData: true
+combineTasksInMatrixMode: false
+concurrency: 3
+cypress: false
+differentialUpload:
+    enabled: false
+    forcedDisabled: false
+    ttlHours: null
+dynamicAllocation: false
+errorCategorizedOnFailureOnly: false
+framework:
+    additional_args: null
+    args:
+        appId: ""
+        appPath: ""
+        artifacts: false
+        avoidAppLaunch: false
+        customData: {}
+        darkMode: false
+        deviceSelectionStrategy: ""
+        devices: []
+        disableReleaseDevice: false
+        filters:
+            attributes: []
+        fixedIP: ""
+        isRealMobile: null
+        isVirtualDevice: false
+        language: ""
+        locale: ""
+        minorOsVersion: false
+        mitmProxy: false
+        mobileDC: null
+        networkHar: false
+        otherApps: []
+        platformName: ""
+        playwrightRD: false
+        preservedDevice: false
+        queueTimeout: 0
+        resignApp: true
+        shards:
+            mappings: []
+        skipInstall: false
+        skipUninstallPreviousBuild: false
+        skipXMLOnRun: false
+        smartUI: null
+        testSuiteAppId: ""
+        testSuitePath: ""
+        uninstallPreviousBuild: false
+        xcTestPlanId: ""
+        xcTestPlanPath: ""
+    baseCommand: ""
+    defaultReports: false
+    discoveryFlags: []
+    discoveryMode: ""
+    discoveryType: ""
+    downloadURL: ""
+    flags: []
+    isTestNGXMLSuite: false
+    licenseKey: ""
+    name: ""
+    runnerFlags: []
+    toscaArgs: null
+    userdefinediscovery: false
+    version: ""
+    workingDirectory: ""
+globalPost:
+    commands: []
+    completed: false
+    mode: ""
+    runson: ""
+    shell: ""
+    workingDirectory: ""
+globalPre:
+    cache: false
+    commands: []
+    completed: false
+    location: ""
+    maxRetries: 0
+    mode: ""
+    runson: ""
+    shell: ""
+    type: ""
+    workingDirectory: ""
+    yamlPath: null
+globalTimeout: 90
+jobID: f10f1697-bb67-498e-8264-6ae662d344b0
+jobLabel:
+    - selenium-python
+    - linux
+    - autosplit
+key: '********'
+localHTTPProxy: ""
+ltOptions: {}
+maxRetries: 3
+maxRetriesPreSteps: 0
+mergeArtifacts: true
+meta: {}
+partialReports:
+    type: json
+    location: reports/
+    frameworkName: ""
+    email:
+        to: []
+        metaInfo: []
+        linkValidity: 0
+    configPath: ""
+    configPathURL: ""
+platformConfig: null
+post:
+    - rm -f demo.txt
+postDirectives:
+    commands:
+        - rm -f demo.txt
+    shell: ""
+    workingDirectory: ""
+pre:
+    - pip3 install -r requirements.txt --cache-dir pip_cache
+preDirectives:
+    commands:
+        - pip3 install -r requirements.txt --cache-dir pip_cache
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+project:
+    id: 01JZJAV8FJPFG91KWYPXV4Q5JK
+    name: LambdaTest Default Project
+    type: custom
+projectpath: ""
+regionConfig:
+    storage:
+        enabled: false
+        name: ""
+        platform: azure
+        region: ""
+    vm: []
+report: true
+retryOnFailure: true
+runson: linux
+slackChannel: ""
+sourcePayload:
+    verifySSL: true
+sprofilePath: ""
+storageType: ""
+testDiscovery:
+    autosubset: true
+    command: grep -nri 'test_demo_site' lambdatest.py | sed 's/:.*//'
+    mode: dynamic
+    type: raw
+testDiscoveryResultV3: []
+testRunnerCommand: python lambdatest.py
+testSuiteStep: 90
+testSuiteTimeout: 90
+testSuites: []
+triggerMode: false
+triggerSource: CLI
+tunnelOpts:
+    testsPerTunnel: 10
+unzipPayload: false
+uploadArtefacts:
+    - email:
+        linkValidity: 0
+        metaInfo: []
+        to: []
+      name: TestReports
+      path:
+        - reports/**
+user: abhilashks
+version: "0.1"
+waitForArtefactsUpload: false
+whiteLabelProductTag: ""

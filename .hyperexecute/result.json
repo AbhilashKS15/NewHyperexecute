@@ -1,0 +1,229 @@
+{
+    "id": "f10f1697-bb67-498e-8264-6ae662d344b0",
+    "created_at": "2025-07-14T11:18:46Z",
+    "update_at": "2025-07-14T11:20:30Z",
+    "global_timeout": 90,
+    "tunnel_name": "",
+    "start_time": "2025-07-14T11:19:35Z",
+    "end_time": "2025-07-14T11:20:30Z",
+    "summary": {
+        "total_time": 55000000000,
+        "execution_time": 55000000000,
+        "total_tasks": 3,
+        "build_time_consumed": 100000000000,
+        "jobTestExecutionTime": "32s",
+        "failed_tasks": 0,
+        "total_stage_info": {
+            "postrun": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 3
+            },
+            "prerun": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 3
+            },
+            "scenario": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 2
+            },
+            "test_discovery": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 3
+            }
+        },
+        "status": "completed",
+        "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=f10f1697-bb67-498e-8264-6ae662d344b0"
+    },
+    "tasks": [
+        {
+            "id": "HYPL-2471074-1752491974287080888DFQ",
+            "os": "linux",
+            "status": "completed",
+            "remark": "completed",
+            "debug": false,
+            "created_at": "2025-07-14T11:19:34Z",
+            "update_at": "2025-07-14T11:20:12Z",
+            "start_time": "2025-07-14T11:19:35Z",
+            "end_time": "2025-07-14T11:20:12Z",
+            "group_number": 1,
+            "stages": [
+                {
+                    "id": "d70f786d-0751-4d32-895a-02c06e5e34c1",
+                    "type": "prerun",
+                    "status": "completed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2025-07-14T11:19:36Z",
+                    "started_at": "2025-07-14T11:19:36Z",
+                    "updated_at": "2025-07-14T11:19:41Z",
+                    "order": 2,
+                    "task_number": 1
+                },
+                {
+                    "id": "138ed924-56d5-4245-8fa2-4c4cf8b50e53",
+                    "type": "test_discovery",
+                    "status": "completed",
+                    "name": "discovery",
+                    "iteration": 0,
+                    "link": "discovery.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:19:41Z",
+                    "updated_at": "2025-07-14T11:19:41Z",
+                    "order": 3,
+                    "task_number": 1
+                },
+                {
+                    "id": "49daab4d-7877-4e8e-abab-76f2796429c5",
+                    "type": "scenario",
+                    "status": "completed",
+                    "name": "52",
+                    "iteration": 0,
+                    "link": "command.1.0.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:19:43Z",
+                    "updated_at": "2025-07-14T11:20:08Z",
+                    "order": 4,
+                    "task_number": 1
+                },
+                {
+                    "id": "b8c189dd-d45f-4747-ab3f-fa1af8f03ba0",
+                    "type": "postrun",
+                    "status": "completed",
+                    "name": "post",
+                    "iteration": 0,
+                    "link": "post.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:20:10Z",
+                    "updated_at": "2025-07-14T11:20:10Z",
+                    "order": 5,
+                    "task_number": 1
+                }
+            ]
+        },
+        {
+            "id": "HYPL-2471074-1752491974339866379QTT",
+            "os": "linux",
+            "status": "completed",
+            "remark": "completed",
+            "debug": false,
+            "created_at": "2025-07-14T11:19:34Z",
+            "update_at": "2025-07-14T11:20:30Z",
+            "start_time": "2025-07-14T11:19:35Z",
+            "end_time": "2025-07-14T11:20:30Z",
+            "group_number": 2,
+            "stages": [
+                {
+                    "id": "dafe8b71-aaea-404f-bf6c-581f3a6fcaa0",
+                    "type": "prerun",
+                    "status": "completed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2025-07-14T11:19:36Z",
+                    "started_at": "2025-07-14T11:19:36Z",
+                    "updated_at": "2025-07-14T11:19:41Z",
+                    "order": 2,
+                    "task_number": 2
+                },
+                {
+                    "id": "48bc5efc-f1c4-450c-9b28-17262714529c",
+                    "type": "test_discovery",
+                    "status": "completed",
+                    "name": "discovery",
+                    "iteration": 0,
+                    "link": "discovery.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:19:41Z",
+                    "updated_at": "2025-07-14T11:19:41Z",
+                    "order": 3,
+                    "task_number": 2
+                },
+                {
+                    "id": "4d489dbe-d208-4213-a1b5-deb213daa01f",
+                    "type": "scenario",
+                    "status": "completed",
+                    "name": "191",
+                    "iteration": 0,
+                    "link": "command.1.0.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:19:43Z",
+                    "updated_at": "2025-07-14T11:20:26Z",
+                    "order": 4,
+                    "task_number": 2
+                },
+                {
+                    "id": "dbe4ee8a-b100-49a7-b83d-e3ce401783d3",
+                    "type": "postrun",
+                    "status": "completed",
+                    "name": "post",
+                    "iteration": 0,
+                    "link": "post.log",
+                    "created_at": "2025-07-14T11:19:41Z",
+                    "started_at": "2025-07-14T11:20:28Z",
+                    "updated_at": "2025-07-14T11:20:28Z",
+                    "order": 5,
+                    "task_number": 2
+                }
+            ]
+        },
+        {
+            "id": "HYPL-2471074-1752491974398929107INB",
+            "os": "linux",
+            "status": "completed",
+            "remark": "completed",
+            "debug": false,
+            "created_at": "2025-07-14T11:19:34Z",
+            "update_at": "2025-07-14T11:20:21Z",
+            "start_time": "2025-07-14T11:20:13Z",
+            "end_time": "2025-07-14T11:20:21Z",
+            "group_number": 3,
+            "stages": [
+                {
+                    "id": "71239aff-ded3-435f-8a78-debb2d08fbda",
+                    "type": "prerun",
+                    "status": "completed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2025-07-14T11:20:14Z",
+                    "started_at": "2025-07-14T11:20:14Z",
+                    "updated_at": "2025-07-14T11:20:18Z",
+                    "order": 2,
+                    "task_number": 3
+                },
+                {
+                    "id": "8b645894-7fa8-435e-8bfe-11f4d51cadde",
+                    "type": "test_discovery",
+                    "status": "completed",
+                    "name": "discovery",
+                    "iteration": 0,
+                    "link": "discovery.log",
+                    "created_at": "2025-07-14T11:20:18Z",
+                    "started_at": "2025-07-14T11:20:18Z",
+                    "updated_at": "2025-07-14T11:20:18Z",
+                    "order": 3,
+                    "task_number": 3
+                },
+                {
+                    "id": "003fb01c-238a-4e9a-a8dc-b13baf434daf",
+                    "type": "postrun",
+                    "status": "completed",
+                    "name": "post",
+                    "iteration": 0,
+                    "link": "post.log",
+                    "created_at": "2025-07-14T11:20:18Z",
+                    "started_at": "2025-07-14T11:20:19Z",
+                    "updated_at": "2025-07-14T11:20:19Z",
+                    "order": 4,
+                    "task_number": 3
+                }
+            ]
+        }
+    ],
+    "test_ids": null
+}

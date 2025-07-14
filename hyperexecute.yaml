@@ -1,0 +1,87 @@
+# version: 0.1
+# globalTimeout: 90
+# testSuiteTimeout: 90
+# testSuiteStep: 90
+# runson: linux
+# autosplit: true
+# retryOnFailure: true
+# maxRetries: 3
+# concurrency: 3
+# cacheKey: '{{ checksum "requirements.txt" }}'
+# cacheDirectories:
+#   - pip_cache
+# pre:
+#   - pip3 install -r requirements.txt --cache-dir pip_cache
+# post:
+#   - rm -f demo.txt
+# mergeArtifacts: true
+# uploadArtefacts:
+#   - name: TestReports
+#     path:
+#       - reports/**
+# report: true
+# partialReports:
+#   type: json
+#   location: reports/
+# frameworkName: unittest
+# testDiscovery:
+#   type: raw
+#   mode: dynamic
+#   command: grep -nri 'test_demo_site' lambdatest.py | sed 's/:.*//'
+# testRunnerCommand: python lambdatest.py
+# jobLabel: [selenium-python, linux, autosplit]
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+runson: linux
+autosplit: true
+retryOnFailure: true
+maxRetries: 3
+concurrency: 3
+
+testRunnerCommand: python lambdatest.py  # ✅ MUST be at root level
+
+cacheKey: '{{ checksum "requirements.txt" }}'
+cacheDirectories:
+  - pip_cache
+
+run_settings:
+  framework: unittest
+  capabilities:
+    browserName: "Chrome"
+    browserVersion: "latest"
+    platformName: "linux"
+    LT:Options:
+      user: "abhilashks"
+      accessKey: "LT_vlepjdZXziyFBp5oW8m3LVYFQ5vpmplNFnDM8j5CpzkAmLw"
+      build: "Selenium 3 Example"
+      name: "LambdaTest Selenium Test"
+      video: true
+      console: true
+      network: true
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -nri 'test_demo_site' lambdatest.py | sed 's/:.*//'
+
+pre:
+  - pip3 install -r requirements.txt --cache-dir pip_cache
+
+post:
+  - rm -f demo.txt
+
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: TestReports
+    path:
+      - reports/**
+
+report: true
+partialReports:
+  type: json
+  location: reports/
+
+jobLabel: [selenium-python, linux, autosplit]
